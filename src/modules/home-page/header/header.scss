@@ -1,0 +1,22 @@
+@import 'core.scss';
+
+.header {
+  width: 100vw;
+  height: 10vh;
+  background-color: 'red';
+}
+
+.wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.form {
+  margin-right: 24px;
+}
+
+.menuIcon {
+  margin-right: 24px !important;
+}

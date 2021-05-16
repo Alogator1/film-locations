@@ -24,12 +24,8 @@
       "@api": ["./src/api/index"],
       "@app": ["./src/modules/app/index"],
       "@app/*": ["./src/modules/app/*"],
-      "@auth": ["./src/modules/auth/index"],
-      "@auth/*": ["./src/modules/auth/*"],
-      "@main-page": ["./src/modules/main-page/index"],
-      "@main-page/*": ["./src/modules/main-page/*"],
-      "@profile": ["./src/modules/profile/index"],
-      "@profile/*": ["./src/modules/profile/*"]
+      "@home-page": ["./src/modules/home-page/index"],
+      "@home-page/*": ["./src/modules/home-page/*"]
     }
   },
   "include": ["./src/**/*", "./typings/**/*"],

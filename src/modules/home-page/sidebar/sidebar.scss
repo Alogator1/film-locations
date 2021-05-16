@@ -1,0 +1,18 @@
+@import 'core.scss';
+
+.sidebar {
+  width: 20vw;
+  background-color: #002884;
+}
+
+.section {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 5px;
+  font-size: 28px;
+  color: white;
+  border-bottom: 2px solid white;
+}

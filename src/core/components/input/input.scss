@@ -1,0 +1,32 @@
+@import 'core.scss';
+
+// input {
+//   width: 80px !important;
+//   height: 20px !important;
+//   background-color: white !important;
+//   font-size: 15px;
+// }
+
+.input {
+  flex: 1;
+  margin-left: 8px;
+  font-size: 14px !important;
+  align-self: center !important;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: '2px 4px';
+}
+
+.iconButton {
+  padding: 10;
+}
+
+.divider {
+  height: 28px;
+  margin: 4px;
+}
