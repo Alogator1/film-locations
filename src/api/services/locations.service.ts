@@ -14,65 +14,12 @@ class LocationService {
       method: 'POST'
     });
 
-  // public telco = (query: string, limit?: number) =>
-  //   this.http.request<Response<Entry[]>>({
-  //     url: '/dictionary/telco',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
-
-  // public region = (query: string, limit?: number) =>
-  //   this.http.request<Response<Entry[]>>({
-  //     url: '/dictionary/region',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
-
-  // public country = (data: { query?: string; limit?: number } = {}) =>
-  //   this.http.request<Response<PaginatedData<Entry>>>({
-  //     url: '/countries',
-  //     data
-  //   });
-
-  // public beneficiary = (query: string, limit?: number) =>
-  //   this.http.request<Response<Entry[]>>({
-  //     url: '/dictionary/beneficiary',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
-
-  // public user = (query: string, limit?: number) =>
-  //   this.http.request<Response<User[]>>({
-  //     url: '/dictionary/user',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
-
-  // public survey = (query: string, limit?: number) =>
-  //   this.http.request<Response<Survey[]>>({
-  //     url: '/dictionary/survey',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
-
-  // public company = (query: string, limit?: number) =>
-  //   this.http.request<Response<Survey[]>>({
-  //     url: '/dictionary/company',
-  //     data: {
-  //       query,
-  //       limit
-  //     }
-  //   });
+  public getUsers = () => {
+    this.http.request<MyResponse<Location[]>>({
+      url: '/users',
+      method: 'GET'
+    });
+  };
 }
 
 export { LocationService };

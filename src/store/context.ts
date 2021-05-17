@@ -9,7 +9,7 @@ import { HttpService, LocationService } from 'src/api/services';
  */
 const getContext = (history: History, store: Store) => {
   const getConfig = (): Partial<AxiosRequestConfig> => ({
-    baseURL: 'someurl'
+    baseURL: 'localhost:3000'
   });
 
   const onUnauthorized = () => true;

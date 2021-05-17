@@ -51,10 +51,11 @@ class HomeSaga {
         }
       });
 
-      // const response: Called<typeof api.location.locations> = yield call(
-      //   api.location.locations,
-      //   query
-      // );
+      const response: Called<typeof api.location.getUsers> = yield call(
+        api.location.getUsers
+      );
+
+      console.log(response);
 
       yield put(getLocations.success(locations));
     } catch (error) {
