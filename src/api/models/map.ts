@@ -1,55 +1,50 @@
 import { FieldMetaProps } from 'formik';
 
-type Entry = {
-  id: number;
-  name: string;
-};
+class Entry {
+  public id: number;
+  public name: string;
+}
 
-type Country = Entry;
+class City {
+  public id: number;
+  public name: string;
+  public country: Entry;
+}
 
-type Genre = Entry;
+class User {
+  public id: number;
+  public name: string;
+  public photo: string;
+  public role: Entry;
+  public email: string;
+  public password: string;
+}
 
-type Role = Entry;
+class Film {
+  public id: number;
+  public name: string;
+  public director: string;
+  public actors: string;
+  public genre: Entry;
+}
 
-type City = {
-  id: number;
-  name: string;
-  country: Country;
-};
+class Location {
+  public id: number;
+  public name: string;
+  public latitude: number;
+  public longitude: number;
+  public city: City;
+  public film: Film;
+  public description: string;
+  public user: User;
+}
 
-type User = {
-  id: number;
-  name: string;
-  photo: string;
-  role: Role;
-  email: string;
-};
+class Comment {
+  public id: number;
+  public user: User;
+  public text: string;
+  public location: Location;
+  public date: Date;
+}
 
-type Film = {
-  id: number;
-  name: string;
-  director: string;
-  actors: string;
-  genre: Genre;
-};
-
-type Location = {
-  id: number;
-  name: string;
-  latitude: number;
-  longitude: number;
-  city: City;
-  film: Film;
-  description: string;
-  user: User;
-};
-
-type Comment = {
-  id: number;
-  creator: User;
-  text: string;
-  location: Location;
-  date: Date;
-};
-
-export type { Entry, Country, Genre, Role, City, User, Film, Location, Comment };
+export { Entry, City, User, Film, Location, Comment };

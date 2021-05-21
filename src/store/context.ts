@@ -9,7 +9,7 @@ import { HttpService, LocationService } from 'src/api/services';
  */
 const getContext = (history: History, store: Store) => {
   const getConfig = (): Partial<AxiosRequestConfig> => ({
-    baseURL: 'localhost:3000'
+    baseURL: 'http://251d2de57539.ngrok.io'
   });
 
   const onUnauthorized = () => true;

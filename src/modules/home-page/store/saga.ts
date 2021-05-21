@@ -13,51 +13,11 @@ class HomeSaga {
     { api }: StoreContext
   ) {
     try {
-      const locations: Location[] = [];
-
-      locations.push({
-        id: 1,
-        name: 'location',
-        film: {
-          id: 1,
-          actors: 'Some actors',
-          name: 'Film',
-          director: 'Director',
-          genre: {
-            id: 1,
-            name: 'Action'
-          }
-        },
-        latitude: 30,
-        longitude: 14,
-        city: {
-          id: 1,
-          name: 'Kiva',
-          country: {
-            id: 1,
-            name: 'Ukraine'
-          }
-        },
-        description: 'Some text',
-        user: {
-          id: 1,
-          name: 'Kiva',
-          photo: 'some photo',
-          role: {
-            id: 1,
-            name: 'admin'
-          },
-          email: 'admin@email.com'
-        }
-      });
-
-      const response: Called<typeof api.location.getUsers> = yield call(
-        api.location.getUsers
+      const response: Called<typeof api.location.locations> = yield call(
+        api.location.locations
       );
 
-      console.log(response);
-
-      yield put(getLocations.success(locations));
+      yield put(getLocations.success(response.data));
     } catch (error) {
       console.log(error);
     }

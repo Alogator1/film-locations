@@ -7,9 +7,9 @@ type MapProps = {};
  * <Map /> props
  */
 const useMapProps = () => {
-  const { locations } = useSelector((state: State) => state.home);
+  const { locations, searchQuery } = useSelector((state: State) => state.home);
 
-  return { locations };
+  return { locations, searchQuery };
 };
 
 export { MapProps, useMapProps };

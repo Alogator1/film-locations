@@ -9,21 +9,23 @@ import { Point } from './point';
 /**
  * <Map />
  */
-const Map = hoc(useMapProps, ({ locations }) => (
+const Map = hoc(useMapProps, ({ locations, searchQuery }) => (
   <GoogleMapReact
     bootstrapURLKeys={{ key: 'AIzaSyDFQKuHItH1zDaAVVSSzeVDq5WtdDpNCtY' }}
     defaultCenter={{ lat: 12, lng: 12 }}
-    defaultZoom={8}
-    onClick={e => console.log(e)}
+    defaultZoom={1}
   >
-    {locations?.map((location, index) => (
-      <Point
-        key={index}
-        lat={location?.latitude}
-        lng={location?.longitude}
-        name={location?.name}
-      />
-    ))}
+    {locations
+      ?.filter(location => location?.name?.includes(searchQuery))
+      ?.map((location, index) => (
+        <Point
+          key={index}
+          lat={location?.latitude}
+          lng={location?.longitude}
+          name={location?.name}
+          location={location}
+        />
+      ))}
   </GoogleMapReact>
 ));
 

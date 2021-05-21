@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
-import { changeSidebar } from '../store/actions';
+import { changeSidebar, setSearchQuery } from '../store/actions';
 import { State } from '@store';
 
 type HeaderProps = {
@@ -11,19 +11,19 @@ type HeaderProps = {
  * <Header /> props
  */
 const useHeaderProps = ({ query }: HeaderProps) => {
+  const dispatch = useDispatch();
+
   const form = useFormik({
     initialValues: {
       query: ''
     },
     onSubmit: values => {
-      console.log(values);
+      dispatch(setSearchQuery(values?.query));
     },
     enableReinitialize: true
   });
 
   const { showSidebar } = useSelector((state: State) => state.home);
-
-  const dispatch = useDispatch();
 
   const hideSidebar = () => {
     dispatch(changeSidebar(!showSidebar));

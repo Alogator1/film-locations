@@ -9,4 +9,12 @@ const getLocations = make('[home] get locations')
   .stage((query?: string) => query)
   .stage('success', (locations: Location[]) => locations);
 
-export { changeSidebar, getLocations };
+const setSearchQuery = make('[home] set search query').stage(
+  (query?: string) => query
+);
+
+const setOpenedLocation = make('[home] set opened location').stage(
+  (location?: Location) => location
+);
+
+export { changeSidebar, getLocations, setSearchQuery, setOpenedLocation };
