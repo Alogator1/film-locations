@@ -46,3 +46,20 @@
   flex-direction: row;
   background-size: cover;
 }
+
+.comment-section {
+  width: 100%;
+  max-height: 180px;
+  overflow-y: scroll;
+  margin-top: 15px;
+  background-color: white;
+}
+
+.form {
+  width: 100% !important;
+  margin-top: 10px;
+}
+
+.input {
+  width: 100% !important;
+}

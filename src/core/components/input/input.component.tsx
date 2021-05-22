@@ -20,9 +20,10 @@ const Input: FC<InputProps> = ({
   after,
   value,
   onChange,
+  className,
   id
 }) => (
-  <Paper className={styles.root}>
+  <Paper className={classNames(styles.root, classNames && className)}>
     <InputBase
       className={styles.input}
       id={id}

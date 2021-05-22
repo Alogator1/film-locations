@@ -3,7 +3,10 @@ import {
   changeSidebar,
   getLocations,
   setSearchQuery,
-  setOpenedLocation
+  setOpenedLocation,
+  getCommentsForLocation,
+  getUserById,
+  addComment
 } from './actions';
 import { HomeState } from './state';
 
@@ -16,6 +19,15 @@ const home = reducer(new HomeState())
   })
   .on(setOpenedLocation, (state, location) => {
     state.openLocation = location;
+  })
+  .on(getUserById.success, (state, user) => {
+    state.user = user;
+  })
+  .on(getCommentsForLocation.success, (state, comments) => {
+    state.locationComments = comments;
+  })
+  .on(addComment.success, (state, comment) => {
+    state.locationComments.push(comment);
   })
   .on(setSearchQuery, (state, query) => {
     state.searchQuery = query;

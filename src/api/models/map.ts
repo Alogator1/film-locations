@@ -40,7 +40,7 @@ class Location {
 }
 
 class Comment {
-  public id: number;
+  public id?: number;
   public user: User;
   public text: string;
   public location: Location;

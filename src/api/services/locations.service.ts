@@ -1,5 +1,4 @@
 import { Location } from '../../api/models/map';
-import { MyResponse } from '../models/common';
 import { HttpService } from './http.service';
 
 class LocationService {

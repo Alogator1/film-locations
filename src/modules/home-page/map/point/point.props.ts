@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Location } from '@api';
-import { setOpenedLocation } from '@home-page/store';
+import { getCommentsForLocation, setOpenedLocation } from '@home-page/store';
 import { useClickOutside } from '@core';
 import { useRef } from 'react';
 import { State } from '@store';
@@ -20,6 +20,7 @@ const usePointProps = ({ location }: PointProps) => {
 
   const onPointClick = () => {
     dispatch(setOpenedLocation(location));
+    dispatch(getCommentsForLocation(location?.id));
   };
 
   return { onPointClick };

@@ -1,6 +1,11 @@
-import { setOpenedLocation } from '@home-page/store';
+import {
+  addComment,
+  getCommentsForLocation,
+  setOpenedLocation
+} from '@home-page/store';
 import { State } from '@store';
-import { useEffect } from 'react';
+import { useFormik } from 'formik';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 type PointModalProps = {};
@@ -9,21 +14,37 @@ type PointModalProps = {};
  * <PointModal /> props
  */
 const usePointModalProps = (_: PointModalProps) => {
-  const { openLocation } = useSelector((state: State) => state.home);
+  const { openLocation, locationComments, user } = useSelector(
+    (state: State) => state.home
+  );
+
+  const form = useFormik({
+    initialValues: {
+      text: ''
+    },
+    onSubmit: values => {
+      console.log(values);
+      dispatch(
+        addComment({
+          location: openLocation,
+          user,
+          text: values.text
+        })
+      );
+
+      form.setFieldValue('text', '');
+    },
+    enableReinitialize: true
+  });
 
   const dispatch = useDispatch();
 
   const onCloseLocationClick = () => {
     dispatch(setOpenedLocation(null));
+    dispatch(getCommentsForLocation.success([]));
   };
 
-  useEffect(() => {
-    if (!openLocation) return;
-
-    console.log('opened!!!');
-  }, [openLocation]);
-
-  return { openLocation, onCloseLocationClick };
+  return { openLocation, onCloseLocationClick, locationComments, form };
 };
 
 export { PointModalProps, usePointModalProps };
