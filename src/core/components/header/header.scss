@@ -1,0 +1,41 @@
+@import 'core.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10vh;
+}
+
+.wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.back-icon {
+  width: 25px !important;
+  height: 25px !important;
+  color: white;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.go-back {
+  margin-left: 8px !important;
+  cursor: pointer;
+  color: white;
+}
+
+.form {
+  margin-right: 24px;
+}
+
+.menuIcon {
+  margin-right: 24px !important;
+}

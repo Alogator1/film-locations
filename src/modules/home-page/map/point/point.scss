@@ -4,3 +4,12 @@
   color: red !important;
   background: none !important;
 }
+
+.text {
+  overflow: hidden;
+  // width: 5%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}

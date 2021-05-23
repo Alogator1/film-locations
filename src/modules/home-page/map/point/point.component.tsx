@@ -18,7 +18,7 @@ const Point = hoc(usePointProps, ({ name, onPointClick }) => (
     onClick={onPointClick}
   >
     <LocationOnIcon fontSize='large' />
-    {name}
+    <span className={styles.text}>{name}</span>
   </IconButton>
 ));
 

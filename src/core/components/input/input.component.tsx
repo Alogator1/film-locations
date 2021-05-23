@@ -21,7 +21,8 @@ const Input: FC<InputProps> = ({
   value,
   onChange,
   className,
-  id
+  id,
+  disabled
 }) => (
   <Paper className={classNames(styles.root, classNames && className)}>
     <InputBase
@@ -33,6 +34,7 @@ const Input: FC<InputProps> = ({
       onChange={e => {
         onChange(e?.target?.value);
       }}
+      disabled={disabled}
     />
     {after && after}
   </Paper>

@@ -1,7 +1,7 @@
 import { State } from '@store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLocations } from './store';
+import { getLocations, setSearchQuery } from './store';
 
 type HomePageProps = {};
 
@@ -15,6 +15,7 @@ const useHomePageProps = () => {
 
   useEffect(() => {
     dispatch(getLocations());
+    dispatch(setSearchQuery(''));
   }, []);
 
   return { showSidebar };

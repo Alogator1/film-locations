@@ -1,4 +1,4 @@
-import { Location, Comment, User } from '@api';
+import { Location, Comment, User, Entry } from '@api';
 import { make } from 'redux-chill';
 
 const changeSidebar = make('[home] change sidebar').stage(
@@ -35,6 +35,10 @@ const setOpenedLocation = make('[home] set opened location').stage(
   (location?: Location) => location
 );
 
+const getCountries = make('[location] get countries')
+  .stage(() => {})
+  .stage('success', (countries: Entry[]) => countries);
+
 const getUserById = make('[user] get user by id')
   .stage((id?: number) => id)
   .stage('success', (user: User) => user);
@@ -46,5 +50,6 @@ export {
   setOpenedLocation,
   getCommentsForLocation,
   addComment,
-  getUserById
+  getUserById,
+  getCountries
 };

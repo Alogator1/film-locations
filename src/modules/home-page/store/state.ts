@@ -1,4 +1,4 @@
-import { Location, Comment, User } from '@api';
+import { Location, Comment, User, Entry } from '@api';
 
 class HomeState {
   showSidebar: boolean = true;
@@ -12,6 +12,8 @@ class HomeState {
   locationComments: Comment[] = [];
 
   user: User = null;
+
+  countries: Entry[] = [];
 }
 
 export { HomeState };

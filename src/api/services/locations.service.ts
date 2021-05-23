@@ -1,4 +1,4 @@
-import { Location } from '../../api/models/map';
+import { City, Entry, Film, Location } from '../../api/models/map';
 import { HttpService } from './http.service';
 
 class LocationService {
@@ -30,11 +30,33 @@ class LocationService {
 
   public createLocation = (location: Location) => {
     this.http.request<Location>({
-      url: '/users',
+      url: '/location',
       method: 'post',
       data: location
     });
   };
+
+  public createCity = (country: number, name: string) =>
+    this.http.request<City>({
+      url: '/city',
+      method: 'post',
+      data: {
+        name,
+        country
+      }
+    });
+
+  public getCountries = () =>
+    this.http.request<Entry[]>({
+      url: '/country',
+      method: 'get'
+    });
+
+  public getFilms = () =>
+    this.http.request<Film[]>({
+      url: '/film',
+      method: 'get'
+    });
 }
 
 export { LocationService };

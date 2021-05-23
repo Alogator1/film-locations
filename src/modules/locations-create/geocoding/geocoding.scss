@@ -1,0 +1,74 @@
+@import 'core.scss';
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: calc(100vh-150px);
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-direction: row;
+}
+
+.buttonNext {
+  width: 130px !important;
+  height: 30px !important;
+}
+
+.map {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 500px;
+  max-height: calc(90vh-150px);
+  flex-direction: column;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15% !important;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 500px;
+  max-height: calc(90vh-150px);
+  flex-direction: column;
+}
+
+.input {
+  width: 70% !important;
+  height: 50px !important;
+  margin-top: 20px;
+}
+
+.map-title {
+  margin-bottom: 20px !important;
+}
+
+.searchOptions {
+  width: 300px !important;
+}
+
+.options {
+  width: 300px;
+  padding-top: 15px;
+}
+
+.option {
+  width: 100%;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #9b9797;
+}
+
+.search-title {
+  margin-bottom: 20px !important;
+}

@@ -6,7 +6,8 @@ import {
   setOpenedLocation,
   getCommentsForLocation,
   getUserById,
-  addComment
+  addComment,
+  getCountries
 } from './actions';
 import { HomeState } from './state';
 
@@ -16,6 +17,9 @@ const home = reducer(new HomeState())
   })
   .on(getLocations.success, (state, locations) => {
     state.locations = locations;
+  })
+  .on(getCountries.success, (state, countries) => {
+    state.countries = countries;
   })
   .on(setOpenedLocation, (state, location) => {
     state.openLocation = location;

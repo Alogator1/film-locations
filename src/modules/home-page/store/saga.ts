@@ -7,6 +7,7 @@ import { call, put, select } from 'redux-saga/effects';
 import {
   addComment,
   getCommentsForLocation,
+  getCountries,
   getLocations,
   getUserById
 } from './actions';
@@ -45,6 +46,28 @@ class HomeSaga {
     }
   }
 
+  @Saga(addComment)
+  public *addComment(
+    { location, user, text }: Payload<typeof addComment>,
+    { api }: StoreContext
+  ) {
+    try {
+      const response: Called<typeof api.comment.addComment> = yield call(
+        api.comment.addComment,
+        {
+          user: user?.id,
+          text,
+          location: location?.id,
+          date: new Date().toISOString()
+        }
+      );
+
+      yield put(addComment.success(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   @Saga(getUserById)
   public *getUserById(
     commentId: Payload<typeof getUserById>,
@@ -62,23 +85,14 @@ class HomeSaga {
     }
   }
 
-  @Saga(addComment)
-  public *addComment(
-    { location, user, text }: Payload<typeof addComment>,
-    { api }: StoreContext
-  ) {
+  @Saga(getCountries)
+  public *getCountries(_: Payload<typeof getCountries>, { api }: StoreContext) {
     try {
-      const response: Called<typeof api.comment.addComment> = yield call(
-        api.comment.addComment,
-        {
-          user,
-          text,
-          location,
-          date: new Date().toISOString()
-        }
+      const response: Called<typeof api.location.getCountries> = yield call(
+        api.location.getCountries
       );
 
-      yield put(addComment.success(response.data));
+      yield put(getCountries.success(response.data));
     } catch (error) {
       console.log(error);
     }

@@ -25,7 +25,11 @@
       "@app": ["./src/modules/app/index"],
       "@app/*": ["./src/modules/app/*"],
       "@home-page": ["./src/modules/home-page/index"],
-      "@home-page/*": ["./src/modules/home-page/*"]
+      "@home-page/*": ["./src/modules/home-page/*"],
+      "@locations": ["./src/modules/locations/index"],
+      "@locations/*": ["./src/modules/locations/*"],
+      "@locations-create": ["./src/modules/locations-create/index"],
+      "@locations-create/*": ["./src/modules/locations-create/*"]
     }
   },
   "include": ["./src/**/*", "./typings/**/*"],

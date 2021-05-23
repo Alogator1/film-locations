@@ -1,0 +1,15 @@
+@import 'core.scss';
+
+.home-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh-150px);
+  flex-direction: column;
+}
+
+.buttonNext {
+  width: 130px !important;
+  height: 30px !important;
+}

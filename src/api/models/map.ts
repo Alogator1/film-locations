@@ -26,10 +26,11 @@ class Film {
   public director: string;
   public actors: string;
   public genre: Entry;
+  public description: string;
 }
 
 class Location {
-  public id: number;
+  public id?: number;
   public name: string;
   public latitude: number;
   public longitude: number;
@@ -47,4 +48,12 @@ class Comment {
   public date: Date;
 }
 
-export { Entry, City, User, Film, Location, Comment };
+class GoogleResponse {
+  public lat: number;
+  public lng: number;
+  public formattedAddress: string;
+  public country: Entry;
+  public city?: City;
+}
+
+export { Entry, City, User, Film, Location, Comment, GoogleResponse };

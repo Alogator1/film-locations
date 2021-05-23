@@ -10,15 +10,17 @@ type PointProps = {
   lng: number;
   name: string;
   location?: Location;
+  disabled?: boolean;
 };
 
 /**
  * <Point /> props
  */
-const usePointProps = ({ location }: PointProps) => {
+const usePointProps = ({ location, disabled }: PointProps) => {
   const dispatch = useDispatch();
 
   const onPointClick = () => {
+    if (disabled) return;
     dispatch(setOpenedLocation(location));
     dispatch(getCommentsForLocation(location?.id));
   };
