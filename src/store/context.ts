@@ -12,7 +12,7 @@ import { UserService } from 'src/api/services/user.service';
  */
 const getContext = (history: History, store: Store) => {
   const getConfig = (): Partial<AxiosRequestConfig> => ({
-    baseURL: 'http://1f2bdbbd8df2.ngrok.io'
+    baseURL: 'http://localhost:3000'
   });
 
   const onUnauthorized = () => true;

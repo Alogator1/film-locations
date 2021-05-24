@@ -1,7 +1,11 @@
 @import 'core.scss';
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 20vw;
+  height: 90wh;
   background-color: #002884;
 }
 
@@ -15,4 +19,17 @@
   font-size: 28px;
   color: white;
   border-bottom: 2px solid white;
+}
+
+.sectionLogout {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 5px;
+  vertical-align: bottom;
+  font-size: 28px;
+  color: white;
+  border-top: 2px solid white;
 }

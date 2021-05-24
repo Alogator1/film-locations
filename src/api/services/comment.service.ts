@@ -16,6 +16,12 @@ class CommentService {
       method: 'GET'
     });
 
+  public delteComment = (id: number) =>
+    this.http.request<Comment>({
+      url: `/comment/${id}`,
+      method: 'DELETE'
+    });
+
   public addComment = comment =>
     this.http.request<Comment>({
       url: '/comment',

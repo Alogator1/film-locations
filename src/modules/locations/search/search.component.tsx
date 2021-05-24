@@ -13,11 +13,12 @@ import {
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { hoc } from '@core';
+import { Roles } from 'src/api/models/common';
 
 /**
  * <Search />
  */
-const Search = hoc(useSearchProps, ({ form, onCreateLocationClick }) => (
+const Search = hoc(useSearchProps, ({ form, onCreateLocationClick, user }) => (
   <div className={styles.search}>
     <Form use={form} className={styles.form}>
       <div />
@@ -39,15 +40,17 @@ const Search = hoc(useSearchProps, ({ form, onCreateLocationClick }) => (
       />
     </Form>
 
-    <div className={styles.createButton}>
-      <Button
-        variant='contained'
-        color='primary'
-        onClick={onCreateLocationClick}
-      >
-        Create location
-      </Button>
-    </div>
+    {user?.role?.id == Roles.Admin && (
+      <div className={styles.createButton}>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={onCreateLocationClick}
+        >
+          Create location
+        </Button>
+      </div>
+    )}
   </div>
 ));
 

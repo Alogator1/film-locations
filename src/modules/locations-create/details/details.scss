@@ -28,6 +28,7 @@
 
 .select {
   width: 50% !important;
+  margin-bottom: 15px !important;
 }
 
 .input {
@@ -35,14 +36,16 @@
   height: 35px !important;
 }
 
-.locationInput {
-  width: 100% !important;
-  height: 35px !important;
-  margin-bottom: 4px;
+.location-description {
+  margin-top: 8px;
 }
 
 .locationContainer {
-  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .buttonNext {

@@ -29,7 +29,11 @@
       "@locations": ["./src/modules/locations/index"],
       "@locations/*": ["./src/modules/locations/*"],
       "@locations-create": ["./src/modules/locations-create/index"],
-      "@locations-create/*": ["./src/modules/locations-create/*"]
+      "@locations-create/*": ["./src/modules/locations-create/*"],
+      "@film-base": ["./src/modules/film-base/index"],
+      "@film-base/*": ["./src/modules/film-base/*"],
+      "@login": ["./src/modules/login/index"],
+      "@login/*": ["./src/modules/login/*"]
     }
   },
   "include": ["./src/**/*", "./typings/**/*"],

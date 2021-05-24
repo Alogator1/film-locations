@@ -5,11 +5,17 @@ const changeSidebar = make('[home] change sidebar').stage(
   (isShow: boolean) => isShow
 );
 
+const deleteComment = make('[comments] delete').stage((id: number) => id);
+
 const getLocations = make('[home] get locations')
   .stage((query?: string) => query)
   .stage('success', (locations: Location[]) => locations);
 
 const setSearchQuery = make('[home] set search query').stage(
+  (query?: string) => query
+);
+
+const setFilmSearchQuery = make('[home] set film search query').stage(
   (query?: string) => query
 );
 
@@ -39,8 +45,12 @@ const getCountries = make('[location] get countries')
   .stage(() => {})
   .stage('success', (countries: Entry[]) => countries);
 
-const getUserById = make('[user] get user by id')
-  .stage((id?: number) => id)
+const setMapCenter = make('[location] set map center').stage(
+  (coordinates: { lat: number; lng: number }) => coordinates
+);
+
+const login = make('[user] get user by id')
+  .stage((email: string, password: string) => ({ email, password }))
   .stage('success', (user: User) => user);
 
 export {
@@ -50,6 +60,9 @@ export {
   setOpenedLocation,
   getCommentsForLocation,
   addComment,
-  getUserById,
-  getCountries
+  login,
+  getCountries,
+  deleteComment,
+  setMapCenter,
+  setFilmSearchQuery
 };

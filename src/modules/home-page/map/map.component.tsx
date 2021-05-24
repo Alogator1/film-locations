@@ -9,14 +9,18 @@ import { Point } from './point';
 /**
  * <Map />
  */
-const Map = hoc(useMapProps, ({ locations, searchQuery }) => (
+const Map = hoc(useMapProps, ({ locations, searchQuery, mapDefaultZoom }) => (
   <GoogleMapReact
     bootstrapURLKeys={{ key: 'AIzaSyDFQKuHItH1zDaAVVSSzeVDq5WtdDpNCtY' }}
-    defaultCenter={{ lat: 12, lng: 12 }}
-    defaultZoom={1}
+    defaultCenter={mapDefaultZoom ? mapDefaultZoom : { lat: 12, lng: 12 }}
+    defaultZoom={mapDefaultZoom ? 10 : 1}
+    center={mapDefaultZoom && mapDefaultZoom}
+    zoom={mapDefaultZoom && 10}
   >
     {locations
-      ?.filter(location => location?.name?.includes(searchQuery))
+      ?.filter(location =>
+        location?.name?.toUpperCase().includes(searchQuery?.toUpperCase())
+      )
       ?.map((location, index) => (
         <Point
           key={index}

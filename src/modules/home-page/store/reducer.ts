@@ -5,9 +5,12 @@ import {
   setSearchQuery,
   setOpenedLocation,
   getCommentsForLocation,
-  getUserById,
+  login,
   addComment,
-  getCountries
+  getCountries,
+  deleteComment,
+  setMapCenter,
+  setFilmSearchQuery
 } from './actions';
 import { HomeState } from './state';
 
@@ -24,8 +27,11 @@ const home = reducer(new HomeState())
   .on(setOpenedLocation, (state, location) => {
     state.openLocation = location;
   })
-  .on(getUserById.success, (state, user) => {
+  .on(login.success, (state, user) => {
     state.user = user;
+  })
+  .on(setMapCenter, (state, coordinates) => {
+    state.mapDefaultZoom = coordinates;
   })
   .on(getCommentsForLocation.success, (state, comments) => {
     state.locationComments = comments;
@@ -35,6 +41,9 @@ const home = reducer(new HomeState())
   })
   .on(setSearchQuery, (state, query) => {
     state.searchQuery = query;
+  })
+  .on(setFilmSearchQuery, (state, query) => {
+    state.filmSearchQuery = query;
   });
 
 export { home };

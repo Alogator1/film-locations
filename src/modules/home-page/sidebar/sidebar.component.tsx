@@ -7,20 +7,29 @@ import { hoc } from '@core';
 /**
  * <Sidebar />
  */
-const Sidebar = hoc(useSidebarProps, ({ sections, navigation }) => (
-  <div className={styles.sidebar}>
-    {sections.map((section, index) => (
-      <div
-        key={index}
-        className={styles.section}
-        onClick={() => {
-          navigation(section.to);
-        }}
-      >
-        {section.name}
+const Sidebar = hoc(
+  useSidebarProps,
+  ({ sections, navigation, user, onLoginClick }) => (
+    <div className={styles.sidebar}>
+      <div className={styles.sidebarWrapper}>
+        {sections.map((section, index) => (
+          <div
+            key={index}
+            className={styles.section}
+            onClick={() => {
+              navigation(section.to);
+            }}
+          >
+            {section.name}
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-));
+
+      <div className={styles.sectionLogout} onClick={onLoginClick}>
+        {user ? 'Log out' : 'Log in'}
+      </div>
+    </div>
+  )
+);
 
 export { Sidebar };

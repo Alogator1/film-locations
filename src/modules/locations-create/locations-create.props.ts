@@ -1,4 +1,3 @@
-import { getUserById } from '@home-page/store';
 import { State } from '@store';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

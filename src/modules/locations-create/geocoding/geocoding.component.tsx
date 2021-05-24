@@ -31,6 +31,12 @@ const Geocoding = hoc(
             key: 'AIzaSyDFQKuHItH1zDaAVVSSzeVDq5WtdDpNCtY'
           }}
           defaultCenter={{ lat: 12, lng: 12 }}
+          center={
+            pickedLocation && {
+              lat: pickedLocation?.lat,
+              lng: pickedLocation?.lng
+            }
+          }
           defaultZoom={1}
           onClick={e => {
             onMapPickClick(e?.lat, e?.lng);

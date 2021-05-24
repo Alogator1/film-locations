@@ -1,0 +1,55 @@
+@import 'core.scss';
+
+.single-location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 0px 36px 36px 36px;
+  flex-direction: row;
+  min-height: 200px;
+  border-top: 2px solid #e4e4e4;
+  border-bottom: 2px solid #e4e4e4;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 30px;
+}
+
+.film-block {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.filmInfo {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  font-size: 18px;
+  line-height: 24px;
+  flex-direction: column;
+}
+
+.description-block {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.open-block {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+// .film-block p {
+// }

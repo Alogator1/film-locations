@@ -3,4 +3,9 @@ class MyResponse<D> {
   public message: string;
 }
 
-export { MyResponse };
+enum Roles {
+  Admin = 1,
+  User = 2
+}
+
+export { MyResponse, Roles };

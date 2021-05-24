@@ -1,6 +1,5 @@
 import { GoogleResponse } from '@api';
 import { useDebounce } from '@core';
-import { getUserById } from '@home-page/store';
 import {
   pickLocation,
   searchLocation,
@@ -19,10 +18,6 @@ type GeocodingProps = {
  */
 const useGeocodingProps = ({ form }: GeocodingProps) => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUserById(4));
-  }, []);
 
   const locationState = useSelector((state: State) => state.createLocation);
 

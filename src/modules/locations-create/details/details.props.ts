@@ -1,6 +1,5 @@
 import { Film, GoogleResponse } from '@api';
 import { useDebounce } from '@core';
-import { getUserById } from '@home-page/store';
 import {
   addLocation,
   getFilms,

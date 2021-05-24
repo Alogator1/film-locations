@@ -14,14 +14,21 @@
   margin-left: 5px;
 }
 
+.delete {
+  cursor: pointer;
+  margin-right: 5px !important;
+}
+
 .about {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between !important;
+  align-items: center;
+  width: 100% !important;
   margin-left: 8px;
   font-size: 12px;
   font-weight: normal;
   line-height: 14px;
+  flex-direction: row !important;
   flex-direction: column;
   font-style: normal;
 }

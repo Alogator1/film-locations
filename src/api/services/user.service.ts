@@ -4,10 +4,14 @@ import { HttpService } from './http.service';
 class UserService {
   public constructor(private http: HttpService) {}
 
-  public getById = (id: number) =>
+  public login = ({ email, password }: { email: string; password: string }) =>
     this.http.request<User>({
-      url: `/users/${id}`,
-      method: 'GET'
+      url: `/users/login`,
+      method: 'POST',
+      data: {
+        email,
+        password
+      }
     });
 }
 

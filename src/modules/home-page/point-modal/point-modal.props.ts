@@ -23,7 +23,13 @@ const usePointModalProps = (_: PointModalProps) => {
       text: ''
     },
     onSubmit: values => {
-      console.log(values);
+      if (!values?.text) {
+        alert("Comment can't be blank!");
+        form.setSubmitting(false);
+
+        return;
+      }
+
       dispatch(
         addComment({
           location: openLocation,
@@ -33,9 +39,16 @@ const usePointModalProps = (_: PointModalProps) => {
       );
 
       form.setFieldValue('text', '');
-    },
-    enableReinitialize: true
+      form.setSubmitting(false);
+    }
   });
+
+  const onMapClick = () => {
+    window.open(
+      `http://www.google.com/maps/place/${openLocation?.latitude},${openLocation?.longitude}`,
+      '_blank'
+    );
+  };
 
   const dispatch = useDispatch();
 
@@ -44,7 +57,14 @@ const usePointModalProps = (_: PointModalProps) => {
     dispatch(getCommentsForLocation.success([]));
   };
 
-  return { openLocation, onCloseLocationClick, locationComments, form };
+  return {
+    openLocation,
+    onCloseLocationClick,
+    locationComments,
+    form,
+    onMapClick,
+    user
+  };
 };
 
 export { PointModalProps, usePointModalProps };

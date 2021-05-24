@@ -29,10 +29,12 @@ const Details = hoc(
           <Field.Input
             placeholder='Enter location name'
             name='name'
-            className={styles.locationInput}
+            className={styles.input}
           />
 
-          <p>* leave blank if want your location name be an address</p>
+          <p className={styles.locationDescription}>
+            * leave blank if want your location name be an address
+          </p>
         </div>
         <Select
           className={styles.select}

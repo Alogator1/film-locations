@@ -19,6 +19,8 @@ const useHeaderProps = ({ query }: HeaderProps) => {
     },
     onSubmit: values => {
       dispatch(setSearchQuery(values?.query));
+
+      form.setSubmitting(false);
     },
     enableReinitialize: true
   });

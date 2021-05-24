@@ -6,10 +6,11 @@ import { Payload, Saga } from 'redux-chill';
 import { call, put, select } from 'redux-saga/effects';
 import {
   addComment,
+  deleteComment,
   getCommentsForLocation,
   getCountries,
   getLocations,
-  getUserById
+  login
 } from './actions';
 
 class HomeSaga {
@@ -62,24 +63,46 @@ class HomeSaga {
         }
       );
 
+      const {
+        home: { openLocation }
+      }: State = yield select();
+
       yield put(addComment.success(response.data));
+      yield put(getCommentsForLocation(openLocation?.id));
     } catch (error) {
       console.log(error);
     }
   }
 
-  @Saga(getUserById)
-  public *getUserById(
-    commentId: Payload<typeof getUserById>,
+  @Saga(deleteComment)
+  public *deleteComment(
+    id: Payload<typeof deleteComment>,
     { api }: StoreContext
   ) {
     try {
-      const response: Called<typeof api.user.getById> = yield call(
-        api.user.getById,
-        commentId
+      yield call(api.comment.delteComment, id);
+
+      const {
+        home: { openLocation }
+      }: State = yield select();
+
+      yield put(getCommentsForLocation(openLocation?.id));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  @Saga(login)
+  public *login(credentials: Payload<typeof login>, { api }: StoreContext) {
+    try {
+      const response: Called<typeof api.user.login> = yield call(
+        api.user.login,
+        credentials
       );
 
-      yield put(getUserById.success(response.data));
+      window.localStorage.setItem('user', JSON.stringify(response.data));
+
+      yield put(login.success(response.data));
     } catch (error) {
       console.log(error);
     }

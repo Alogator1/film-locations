@@ -7,6 +7,8 @@ class HomeState {
 
   searchQuery: string = '';
 
+  filmSearchQuery: string = '';
+
   openLocation: Location = null;
 
   locationComments: Comment[] = [];
@@ -14,6 +16,11 @@ class HomeState {
   user: User = null;
 
   countries: Entry[] = [];
+
+  mapDefaultZoom: {
+    lat: number;
+    lng: number;
+  } = null;
 }
 
 export { HomeState };

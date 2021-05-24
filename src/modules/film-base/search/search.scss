@@ -1,0 +1,29 @@
+@import 'core.scss';
+
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-direction: row;
+}
+
+.create-button {
+  position: absolute;
+  top: 21px;
+  right: 30px;
+  height: 30px !important;
+  margin-left: auto !important;
+}
+
+.form {
+  justify-self: center !important;
+}
+
+.input {
+  width: 30vw !important;
+  min-width: 185px;
+}
