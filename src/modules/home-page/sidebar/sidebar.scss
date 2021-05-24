@@ -23,13 +23,13 @@
 
 .sectionLogout {
   display: flex;
-  cursor: pointer;
   justify-content: center;
   align-items: center;
   height: 50px;
   padding: 5px;
-  vertical-align: bottom;
+  margin-bottom: 15px;
   font-size: 28px;
   color: white;
-  border-top: 2px solid white;
+  cursor: pointer;
+  vertical-align: bottom;
 }

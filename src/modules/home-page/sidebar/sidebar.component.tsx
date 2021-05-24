@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import * as styles from './sidebar.scss';
 import classNames from 'classnames';
 import { SidebarProps, useSidebarProps } from './sidebar.props';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { hoc } from '@core';
 
 /**
@@ -27,6 +28,10 @@ const Sidebar = hoc(
 
       <div className={styles.sectionLogout} onClick={onLoginClick}>
         {user ? 'Log out' : 'Log in'}
+
+        <ExitToAppIcon
+          style={{ width: '20px', height: '20px', marginLeft: '15px' }}
+        />
       </div>
     </div>
   )
