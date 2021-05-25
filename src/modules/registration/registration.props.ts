@@ -1,12 +1,12 @@
-import { login } from '@home-page/store';
+import { login, registration } from '@home-page/store';
 import { State } from '@store';
 import { navigate } from '@store/router';
 import { useFormik } from 'formik';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { object, string } from 'yup';
 
-type LoginProps = {};
+type RegistrationProps = {};
 
 const validationSchema = object({
   email: string()
@@ -18,43 +18,49 @@ const validationSchema = object({
   password: string()
     .required()
     .nullable()
-    .label('Password')
+    .label('Password'),
+
+  name: string()
+    .required()
+    .nullable()
+    .label('Name')
 });
 
 /**
- * <Login /> props
+ * <Registration /> props
  */
-const useLoginProps = (_: LoginProps) => {
+const useRegistrationProps = (_: RegistrationProps) => {
   const {
     home: { user }
   } = useSelector((state: State) => state);
+
+  const [checked, setChecked] = useState(false);
 
   const dispatch = useDispatch();
 
   const form = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
+      name: ''
     },
     onSubmit: values => {
-      console.log('submitting!');
+      dispatch(registration(values));
 
-      dispatch(login(values?.email, values?.password));
+      if (checked) {
+        window.location.href = `mailto:vtelyachy@gmail.com?subject=I want to request access&body=Hi,I want to request admin access on my account, with email ${values.email}`;
+      }
     },
     enableReinitialize: true,
     validationSchema
   });
-
-  const onRegistrationClick = () => {
-    dispatch(navigate('/registration'));
-  };
 
   useEffect(() => {
     if (!user) return;
     dispatch(navigate('/'));
   }, [user]);
 
-  return { form, onRegistrationClick };
+  return { form, setChecked };
 };
 
-export { LoginProps, useLoginProps };
+export { RegistrationProps, useRegistrationProps };

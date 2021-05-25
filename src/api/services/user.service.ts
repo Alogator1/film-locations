@@ -13,6 +13,26 @@ class UserService {
         password
       }
     });
+
+  public registration = ({
+    email,
+    password,
+    name
+  }: {
+    email: string;
+    password: string;
+    name: string;
+  }) =>
+    this.http.request<User>({
+      url: `/users`,
+      method: 'POST',
+      data: {
+        email,
+        password,
+        name,
+        role: 2
+      }
+    });
 }
 
 export { UserService };

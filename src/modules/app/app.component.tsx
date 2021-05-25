@@ -11,6 +11,7 @@ import { LocationsCreate } from '../locations-create';
 import { Login } from '../login';
 import { useEffect } from 'react';
 import { FilmBase } from '@film-base';
+import { Registration } from '../registration';
 
 /**
  * Renders App
@@ -33,6 +34,7 @@ const App: React.FC<AppProps> = ({}) => {
           <Route path='/locations' component={Locations} />
           <Route path='/filmbase' component={FilmBase} />
           <Route path='/login' component={Login} />
+          <Route path='/registration' component={Registration} />
           <Route path='/' component={HomePage} />
         </Switch>
       </React.Suspense>

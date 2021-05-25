@@ -33,7 +33,9 @@
       "@film-base": ["./src/modules/film-base/index"],
       "@film-base/*": ["./src/modules/film-base/*"],
       "@login": ["./src/modules/login/index"],
-      "@login/*": ["./src/modules/login/*"]
+      "@login/*": ["./src/modules/login/*"],
+      "@registration": ["./src/modules/registration/index"],
+      "@registration/*": ["./src/modules/registration/*"]
     }
   },
   "include": ["./src/**/*", "./typings/**/*"],

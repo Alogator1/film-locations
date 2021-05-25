@@ -10,7 +10,8 @@ import {
   getCountries,
   deleteComment,
   setMapCenter,
-  setFilmSearchQuery
+  setFilmSearchQuery,
+  registration
 } from './actions';
 import { HomeState } from './state';
 
@@ -28,6 +29,9 @@ const home = reducer(new HomeState())
     state.openLocation = location;
   })
   .on(login.success, (state, user) => {
+    state.user = user;
+  })
+  .on(registration.success, (state, user) => {
     state.user = user;
   })
   .on(setMapCenter, (state, coordinates) => {

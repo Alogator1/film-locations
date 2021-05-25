@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from 'react';
-import * as styles from './login.scss';
-import { useLoginProps } from './login.props';
+import * as styles from './registration.scss';
+import { useRegistrationProps } from './registration.props';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,11 +19,11 @@ import { Form } from '@core/form';
 import { Field } from '@core/components/field';
 
 /**
- * <Login />
+ * <Registration />
  */
-const Login = hoc(useLoginProps, ({ form, onRegistrationClick }) => (
+const Registration = hoc(useRegistrationProps, ({ form, setChecked }) => (
   <Fragment>
-    <Header name={'Hello again, stranger!'} back={'/'} />
+    <Header name={'Hello again, stranger!'} back={'/login'} />
 
     <Container component='main' maxWidth='xs'>
       <div className={styles.paper}>
@@ -35,6 +35,8 @@ const Login = hoc(useLoginProps, ({ form, onRegistrationClick }) => (
 
           <Field.TextField label='Password' name='password' type='password' />
 
+          <Field.TextField label='Name' name='name' />
+
           <Button
             type='submit'
             fullWidth
@@ -42,15 +44,18 @@ const Login = hoc(useLoginProps, ({ form, onRegistrationClick }) => (
             color='primary'
             className={styles.submit}
           >
-            Sign In
+            Sign Up
           </Button>
 
-          <Grid container>
-            <Grid item onClick={onRegistrationClick}>
-              <Link variant='body2' style={{ cursor: 'pointer' }}>
-                Don't have an account? Sign Up
-              </Link>
-            </Grid>
+          <Grid container className={styles.request}>
+            <Checkbox
+              onChange={(_, checked) => {
+                setChecked(checked);
+              }}
+            />
+            <Typography component='p' variant='h6'>
+              I want to request admin access
+            </Typography>
           </Grid>
         </Form>
       </div>
@@ -58,4 +63,4 @@ const Login = hoc(useLoginProps, ({ form, onRegistrationClick }) => (
   </Fragment>
 ));
 
-export { Login };
+export { Registration };

@@ -49,8 +49,16 @@ const setMapCenter = make('[location] set map center').stage(
   (coordinates: { lat: number; lng: number }) => coordinates
 );
 
-const login = make('[user] get user by id')
+const login = make('[user] login')
   .stage((email: string, password: string) => ({ email, password }))
+  .stage('success', (user: User) => user);
+
+const registration = make('[user] register')
+  .stage(({ email, password, name }) => ({
+    email,
+    password,
+    name
+  }))
   .stage('success', (user: User) => user);
 
 export {
@@ -64,5 +72,6 @@ export {
   getCountries,
   deleteComment,
   setMapCenter,
-  setFilmSearchQuery
+  setFilmSearchQuery,
+  registration
 };

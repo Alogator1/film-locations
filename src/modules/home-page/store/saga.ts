@@ -10,7 +10,8 @@ import {
   getCommentsForLocation,
   getCountries,
   getLocations,
-  login
+  login,
+  registration
 } from './actions';
 
 class HomeSaga {
@@ -103,6 +104,25 @@ class HomeSaga {
       window.localStorage.setItem('user', JSON.stringify(response.data));
 
       yield put(login.success(response.data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  @Saga(registration)
+  public *registration(
+    credentials: Payload<typeof registration>,
+    { api }: StoreContext
+  ) {
+    try {
+      const response: Called<typeof api.user.registration> = yield call(
+        api.user.registration,
+        credentials
+      );
+
+      window.localStorage.setItem('user', JSON.stringify(response.data));
+
+      yield put(registration.success(response.data));
     } catch (error) {
       console.log(error);
     }
